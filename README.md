@@ -19,3 +19,6 @@ The purpose of this project is to let me refresh some basic web development conc
 
 ## Structure
 This project uses multiple Docker containers to fully containerize the webapp. There is 1 container for the front-end (HTML/CSS/JS), 2 containers for the back-end (1 for PHP, 1 for Java), 1 container for hosting the MySQL Database. This structure makes it easy to switch the back-end between the PHP and Java version as both implement the same REST API, meaning the front-end interacts with both in the exact same way.
+
+## Docker Compose
+The provided docker-compose.yml file is a template to create the different containers. Change the names, usernames, passwords, ports, etc... to whatever is applicable for your own local environment.
