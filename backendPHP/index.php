@@ -77,17 +77,14 @@ $path = preg_replace('#/+#', '/', $path);
 
 $routeMap = [
   '/health' => __DIR__ . '/routes/health.php',
-  '/api/health' => __DIR__ . '/routes/health.php',
-  '/register' => __DIR__ . '/routes/register.php',
-  '/api/register' => __DIR__ . '/routes/register.php',
-  '/login' => __DIR__ . '/routes/login.php',
-  '/api/login' => __DIR__ . '/routes/login.php',
-  '/logout' => __DIR__ . '/routes/logout.php',
-  '/api/logout' => __DIR__ . '/routes/logout.php',
-  '/user' => __DIR__ . '/routes/user.php',
-  '/api/user' => __DIR__ . '/routes/user.php',
-  '/users' => __DIR__ . '/routes/users.php',
-  '/api/users' => __DIR__ . '/routes/users.php',
+  '/register' => __DIR__ . '/routes/users/register.php',
+  '/login' => __DIR__ . '/routes/users/login.php',
+  '/logout' => __DIR__ . '/routes/users/logout.php',
+  '/user' => __DIR__ . '/routes/users/user.php',
+  '/movies' => __DIR__ . '/routes/movies/movies.php',
+  '/movie' => __DIR__ . '/routes/movies/movie.php',
+  '/movie/ratings' => __DIR__ . '/routes/movies/movie-ratings.php',
+  '/ratings' => __DIR__ . '/routes/users/ratings.php'
 ];
 
 if (isset($routeMap[$path])) {

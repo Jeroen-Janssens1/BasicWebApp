@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../db.php';
+require_once __DIR__ . '/../../db.php';
 
 function api_response_user(int $statusCode, array $payload): void {
   http_response_code($statusCode);
