@@ -27,13 +27,12 @@ $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '/';
 $path = preg_replace('#/+#', '/', $path);
 
 $routeMap = [
-  '/api/health' => __DIR__ . '/routes/health.php',
-  '/api/register' => __DIR__ . '/routes/register.php',
-  '/api/login' => __DIR__ . '/routes/login.php',
-  '/api/logout' => __DIR__ . '/routes/logout.php',
-  '/api/user' => __DIR__ . '/routes/user.php',
-  '/api/users' => __DIR__ . '/routes/users.php',
   '/health' => __DIR__ . '/routes/health.php',
+  '/register' => __DIR__ . '/routes/register.php',
+  '/login' => __DIR__ . '/routes/login.php',
+  '/logout' => __DIR__ . '/routes/logout.php',
+  '/user' => __DIR__ . '/routes/user.php',
+  '/users' => __DIR__ . '/routes/users.php',
 ];
 
 if (isset($routeMap[$path])) {
