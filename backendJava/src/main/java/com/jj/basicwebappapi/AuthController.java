@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/")
 public class AuthController {
 
     private final AuthenticationManager authenticationManager;
@@ -23,7 +23,7 @@ public class AuthController {
         this.authenticationManager = authenticationManager;
     }
 
-    @PostMapping("/login")
+    @PostMapping("login")
     public ResponseEntity<Map<String, Object>> login(@RequestBody Map<String, String> request) {
         String username = request.get("username");
         String password = request.get("password");
