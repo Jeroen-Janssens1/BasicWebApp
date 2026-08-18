@@ -10,9 +10,7 @@ services:
 
   backend:
     build:
-        context: ./backendPHP
-    volumes:
-      - ./backendPHP:/var/www/html:ro
+        context: ./backendJava
     environment:
       DB_HOST: db
       DB_PORT: 3306
