@@ -24,7 +24,9 @@ This project uses multiple Docker containers to fully containerize the webapp. T
 - The back-end PHP container is running Apache.
 
 ## Docker Compose
-The provided docker-compose.yml file is a template to create the different containers. Change the names, usernames, passwords, ports, etc... to whatever is applicable for your own local environment.
+The provided docker-compose.yml files are templates to create the different containers. Change the names, usernames, passwords, ports, etc... to whatever is applicable for your own local environment.
+
+Also chose the correct template depending on which backend you want to run.
 
 ## The API
 It's a fairly simple and small API with few endpoints.
