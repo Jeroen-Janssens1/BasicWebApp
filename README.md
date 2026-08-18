@@ -10,7 +10,7 @@ The purpose of this project is to let me refresh some basic web development conc
   - Java
   - HTML
   - CSS
-  - JavaScript (Soon, probably.)
+  - JavaScript
 - Git Bash (For git related commands, I like using command line for these things.)
 - Postman (For API endpoint / backend testing without having to develop a full front-end.)
 - Docker Desktop / Docker Compose (For the containerization of the application. Also mostly used in order to stretch my Docker muscles as it had been a while.)
@@ -22,6 +22,7 @@ This project uses multiple Docker containers to fully containerize the webapp. T
 
 - The front-end container is running Nginx.
 - The back-end PHP container is running Apache.
+- The back-end Java container is running Eclipse Temurin.
 
 ## Docker Compose
 The provided docker-compose.yml files are templates to create the different containers. Change the names, usernames, passwords, ports, etc... to whatever is applicable for your own local environment.
