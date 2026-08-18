@@ -21,9 +21,10 @@ public class SecurityConfig {
         http
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
+                .requestMatchers(HttpMethod.GET, "/health").permitAll()
                 .requestMatchers(HttpMethod.POST, "/login").permitAll()
                 .requestMatchers(HttpMethod.POST, "/register").permitAll()
-                .requestMatchers("/health").permitAll()
+                .requestMatchers(HttpMethod.GET, "/movies", "/movie", "/movie/ratings").permitAll()
                 .anyRequest().authenticated())
             .httpBasic(Customizer.withDefaults());
 
