@@ -17,11 +17,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class MovieController {
 
     private final MovieRepository movieRepository;
+    private final RatingRepository ratingRepository;
    
 
-    public MovieController(MovieRepository movieRepository) {
+    public MovieController(MovieRepository movieRepository, RatingRepository ratingRepository) {
         this.movieRepository = movieRepository;
-        
+        this.ratingRepository = ratingRepository;
     }
 
     @GetMapping("movies")
@@ -60,6 +61,27 @@ public class MovieController {
             })
             .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).body((Object) Map.of("error", "Movie not found")));
     }
+
+    @GetMapping("movie/ratings")
+    public ResponseEntity<Object> getMovieRatings(@RequestParam Integer id) {
+        if (!movieRepository.existsById(id)) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("error", "Movie not found"));
+        }
+
+        List<Map<String, Object>> ratings = ratingRepository.findByMovieIdOrderByUserUsernameAsc(id).stream().map(r -> {
+            Map<String, Object> ratingMap = new HashMap<>();
+            ratingMap.put("user_id", r.getUser().getId());
+            ratingMap.put("username", r.getUser().getUsername());
+            ratingMap.put("score", r.getScore());
+            return ratingMap;
+        }).collect(Collectors.toList());
+
+        Map<String, Object> response = new HashMap<>();
+        response.put("movie_id", id);
+        response.put("ratings", ratings);
+        return ResponseEntity.ok(response);
+    }
+
 
     
 }
