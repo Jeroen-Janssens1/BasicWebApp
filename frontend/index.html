@@ -1,22 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CinemaRate - Movie Rating Platform</title>
-    <link rel="stylesheet" href="src/styles/styles.css">
-    <link rel="stylesheet" href="src/styles/components.css">
-</head>
-<body>
-    <div class="container">
-        <div class="emoji">🎬</div>
-        <h1>CinemaRate</h1>
-        <p class="tagline">Discover, Rate, and Share Your Favorite Movies</p>
-        <p class="subtitle">Join our community of film enthusiasts and rate movies today!</p>
-        <div class="buttons">
-            <a href="login.php" class="login-btn">Login</a>
-            <a href="signup.php" class="signup-btn">Sign Up</a>
-        </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CinemaRate</title>
+    <link rel="stylesheet" href="src/styles/app.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand">🎬 CinemaRate</div>
+        <nav id="main-nav" class="nav hidden">
+          <button id="nav-profile" type="button">Profile</button>
+          <button id="nav-movies" type="button">Movies</button>
+          <button id="nav-logout" type="button" class="secondary-btn">Logout</button>
+        </nav>
+      </header>
+
+      <main class="views">
+        <section id="welcome-view" class="view active">
+          <div class="auth-grid">
+            <div class="auth-card">
+              <h2>Login</h2>
+              <form id="login-form" class="form-stack">
+                <div class="field">
+                  <label for="login-username">Username</label>
+                  <input id="login-username" name="username" type="text" autocomplete="username" required />
+                </div>
+                <div class="field">
+                  <label for="login-password">Password</label>
+                  <input id="login-password" name="password" type="password" autocomplete="current-password" required />
+                </div>
+                <button type="submit" class="primary-btn">Login</button>
+              </form>
+            </div>
+
+            <div class="auth-card">
+              <h2>Create account</h2>
+              <form id="register-form" class="form-stack">
+                <div class="field">
+                  <label for="register-username">Username</label>
+                  <input id="register-username" name="username" type="text" autocomplete="username" required />
+                </div>
+                <div class="field">
+                  <label for="register-password">Password</label>
+                  <input id="register-password" name="password" type="password" autocomplete="new-password" required />
+                </div>
+                <button type="submit" class="primary-btn">Create account</button>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <section id="profile-view" class="view">
+          <div class="panel">
+            <div class="toolbar">
+              <div>
+                <h2 id="profile-username">Profile</h2>
+              </div>
+              <button id="delete-account-btn" type="button" class="danger-btn">Delete account</button>
+            </div>
+
+            <div class="controls">
+              <div class="control">
+                <label for="profile-search">Filter by movie</label>
+                <input id="profile-search" type="text" placeholder="Search your ratings" />
+              </div>
+              <div class="control">
+                <label for="profile-sort-key">Sort by</label>
+                <select id="profile-sort-key">
+                  <option value="movie_name">Movie name</option>
+                  <option value="score">Score</option>
+                </select>
+              </div>
+              <div class="control">
+                <label for="profile-sort-dir">Direction</label>
+                <select id="profile-sort-dir">
+                  <option value="asc">Ascending</option>
+                  <option value="desc">Descending</option>
+                </select>
+              </div>
+            </div>
+
+            <div id="profile-ratings-list" class="profile-rating-list"></div>
+          </div>
+        </section>
+
+        <section id="movies-view" class="view">
+          <div class="panel">
+            <div class="toolbar">
+              <div>
+                <h2>Movies</h2>
+              </div>
+            </div>
+
+            <div class="controls">
+              <div class="control">
+                <label for="movie-search">Filter by name</label>
+                <input id="movie-search" type="text" placeholder="Search movie titles" />
+              </div>
+              <div class="control">
+                <label for="movie-sort-key">Sort by</label>
+                <select id="movie-sort-key">
+                  <option value="name">Name</option>
+                  <option value="avg_rating">Average score</option>
+                </select>
+              </div>
+              <div class="control">
+                <label for="movie-sort-dir">Direction</label>
+                <select id="movie-sort-dir">
+                  <option value="asc">Ascending</option>
+                  <option value="desc">Descending</option>
+                </select>
+              </div>
+            </div>
+
+            <div id="movies-list" class="movie-grid"></div>
+          </div>
+        </section>
+
+        <section id="movie-detail-view" class="view">
+          <div class="toolbar">
+            <button id="back-to-movies" type="button" class="secondary-btn">Back to movies</button>
+          </div>
+          <div id="movie-detail-content"></div>
+        </section>
+      </main>
     </div>
-</body>
+
+    <div id="toast" class="toast" aria-live="polite"></div>
+
+    <script src="src/app.js"></script>
+  </body>
 </html>
